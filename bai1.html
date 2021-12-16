@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<p>Nhập từ cần tìm kiếm:</p>
+<input type="text" id="tuKhoa">
+<button onclick="traCuu()">Tra cứu</button>
+<br>
+<button onclick="clearAll()">Tra cứu từ khác</button>
+<p id="ketQua"></p>
+</body>
+<script>
+    let tiengAnh = ["One", "Two", "Three", "Four"];
+    let tiengViet = ["Một", "Hai", "Ba", "Bốn"];
+    let elemon = 0;
+
+    function traCuu() {
+        let tuKhoa = document.getElementById("tuKhoa").value;
+        let kiemTra = false;
+        for (let i = 0; i < tiengAnh.length; i++) {
+            if (tuKhoa == tiengAnh[i]) {
+                kiemTra = true;
+            }
+        }
+        if (kiemTra == true) {
+            elemon = tiengAnh.indexOf(tuKhoa);
+            document.getElementById("ketQua").innerHTML = tiengViet[elemon];
+        } else {
+            alert("Không có trong từ điển")
+        }
+    }
+
+    function clearAll() {
+        elemon = 0;
+        document.getElementById("tuKhoa").value = "";
+        document.getElementById("ketQua").innerHTML = "";
+    }
+</script>
+</html>
