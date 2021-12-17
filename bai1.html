@@ -15,19 +15,18 @@
 <script>
     let tiengAnh = ["One", "Two", "Three", "Four"];
     let tiengViet = ["Một", "Hai", "Ba", "Bốn"];
-    let elemon = 0;
 
     function traCuu() {
         let tuKhoa = document.getElementById("tuKhoa").value;
-        let kiemTra = false;
+        let index = -1;
         for (let i = 0; i < tiengAnh.length; i++) {
             if (tuKhoa == tiengAnh[i]) {
-                kiemTra = true;
+                index = i;
+                break;
             }
         }
-        if (kiemTra == true) {
-            elemon = tiengAnh.indexOf(tuKhoa);
-            document.getElementById("ketQua").innerHTML = tiengViet[elemon];
+        if (index != -1) {
+            document.getElementById("ketQua").innerHTML = tiengViet[index];
         } else {
             alert("Không có trong từ điển")
         }
